@@ -11,9 +11,10 @@ const App = () => {
   useEffect(() => {
 
     const getPuppies = async () => {
-      const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/teams`)
+      const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players`)
       const responseJSON = await response.json();
-      const puppiesToBeAdded = responseJSON.data.teams;
+      console.log(responseJSON.data.players);
+      const puppiesToBeAdded = responseJSON.data.players;
       setPuppies(puppiesToBeAdded);
 
 
@@ -33,8 +34,9 @@ const App = () => {
 
       <Routes>
         <Route path="/roster" element={<Roster puppies={puppies}/>} />
+        {/* <Route path="/search" element={<Searched />} /> */}
         <Route path="/:teamId/:id" element={<SinglePuppy />} /> 
-        <Route path="/form" element={<Form />} />
+        <Route path="/form" element={<Form puppies={puppies} setPuppies={setPuppies}/>} />
       </Routes>
     </>
   )
