@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Roster = () => {
 
   const [puppies, setPuppies] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -26,7 +28,10 @@ const Roster = () => {
         {
           puppies.map((puppyTeam) => 
             puppyTeam.players.map((player) => (
-              <section key={player.id}>
+              <section 
+                key={player.id}
+                onClick={() => { navigate(`/${player.teamId}/${player.id}`)}}
+              >
                 <img src={player.imageUrl} height="200" />
                 <h3>{player.name}</h3>
               </section>
