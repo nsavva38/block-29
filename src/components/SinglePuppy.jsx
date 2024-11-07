@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 
 const SinglePuppy = () => {
@@ -7,6 +7,7 @@ const SinglePuppy = () => {
   const [selectedPuppy, setSelectedPuppy] = useState({});
   const [puppyTeamName, setPuppyTeamName] = useState(``);
   const { teamId, id } = useParams();
+  const navigate = useNavigate();
 
 
 
@@ -36,6 +37,18 @@ const SinglePuppy = () => {
   }, [])
 
 
+  const removePuppy = async () => {
+    await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players/${id}`,{
+      method: 'DELETE',
+      headers: {
+        "Content-Type": "application/json"
+      }
+
+    })
+    navigate(`/roster`);
+  }
+
+
   return (
     <section id="puppy">
       <h2>Meet {selectedPuppy.name}!</h2>
@@ -43,6 +56,7 @@ const SinglePuppy = () => {
       <p>{selectedPuppy.name} plays for {puppyTeamName}!</p>
       <p>{selectedPuppy.name}'s current status is: {selectedPuppy.status}</p>
 
+      <button onClick={ removePuppy }>Remove From Puppy Bowl</button>
       <Link to={`/roster`}>Back To Roster</Link>
     </section>
 
