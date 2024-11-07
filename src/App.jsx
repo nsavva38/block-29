@@ -33,10 +33,10 @@ const App = () => {
       <h1>Puppy Bowl</h1>
 
       <Routes>
-        <Route path="/roster" element={<Roster puppies={puppies}/>} />
+        <Route path="/roster" element={<Roster puppies={puppies} setPuppies={setPuppies}/>} />
         {/* <Route path="/search" element={<Searched />} /> */}
         <Route path="/:teamId/:id" element={<SinglePuppy />} /> 
-        <Route path="/form" element={<Form puppies={puppies} setPuppies={setPuppies}/>} />
+        <Route path="/form" element={<Form />} />
       </Routes>
     </>
   )

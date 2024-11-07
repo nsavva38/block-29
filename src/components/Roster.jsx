@@ -1,9 +1,21 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const Roster = ({ puppies }) => {
+const Roster = () => {
 
+  const [pupps, setPupps] = useState([])
   const navigate = useNavigate();
+  useEffect(() => {
+    const getPupps = async () => {
+      const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players`)
+      const responseJSON = await response.json();
+      console.log(responseJSON.data.players);
+      const puppiesToBeAdded = responseJSON.data.players;
+      setPupps(puppiesToBeAdded);
+    }
 
+    getPupps();
+  }, []);
       
 
   return (
@@ -11,7 +23,7 @@ const Roster = ({ puppies }) => {
       <h1>Roster</h1>
       <section id="all-puppies">
         {
-          puppies.map((puppyTeam) => 
+          pupps.map((puppyTeam) => 
             // puppyTeam.players.map((player) => (
               <section 
                 key={puppyTeam.id}
