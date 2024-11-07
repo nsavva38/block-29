@@ -13,7 +13,6 @@ const App = () => {
     const getPuppies = async () => {
       const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players`)
       const responseJSON = await response.json();
-      console.log(responseJSON.data.players);
       const puppiesToBeAdded = responseJSON.data.players;
       setPuppies(puppiesToBeAdded);
 

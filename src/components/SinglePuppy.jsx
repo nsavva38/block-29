@@ -57,6 +57,7 @@ const SinglePuppy = () => {
       <p>{selectedPuppy.name}'s current status is: {selectedPuppy.status}</p>
 
       <button onClick={ removePuppy }>Remove From Puppy Bowl</button>
+      <br></br>
       <Link to={`/roster`}>Back To Roster</Link>
     </section>
 

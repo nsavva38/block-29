@@ -9,7 +9,6 @@ const Roster = () => {
     const getPupps = async () => {
       const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players`)
       const responseJSON = await response.json();
-      console.log(responseJSON.data.players);
       const puppiesToBeAdded = responseJSON.data.players;
       setPupps(puppiesToBeAdded);
     }
@@ -21,6 +20,13 @@ const Roster = () => {
   return (
     <>
       <h1>Roster</h1>
+
+      <form>
+        <input placeholder="search by name"/>
+        <button>Search</button>
+      </form>
+      <br></br>
+
       <section id="all-puppies">
         {
           pupps.map((puppyTeam) => 
