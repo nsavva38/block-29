@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 const Roster = () => {
 
   const [pupps, setPupps] = useState([])
+  const [puppyName, setPuppyName] = useState(``);
   const navigate = useNavigate();
   useEffect(() => {
     const getPupps = async () => {
@@ -21,22 +22,23 @@ const Roster = () => {
     <>
       <h1>Roster</h1>
 
-      <form>
-        <input placeholder="search by name"/>
+      <form onSubmit={() => navigate(`/search/${puppyName}`)}>
+        <input placeholder="search by name"
+          onChange={(event) => {setPuppyName(event.target.value)}}
+        />
         <button>Search</button>
       </form>
       <br></br>
 
       <section id="all-puppies">
         {
-          pupps.map((puppyTeam) => 
-            // puppyTeam.players.map((player) => (
+          pupps.map((puppy) => 
               <section 
-                key={puppyTeam.id}
-                onClick={() => { navigate(`/${puppyTeam.teamId}/${puppyTeam.id}`)}}
+                key={puppy.id}
+                onClick={() => { navigate(`/${puppy.teamId}/${puppy.id}`)}}
               >
-                <img src={puppyTeam.imageUrl} height="200" />
-                <h3>{puppyTeam.name}</h3>
+                <img src={puppy.imageUrl} height="200" />
+                <h3>{puppy.name}</h3>
               </section>
             
           )

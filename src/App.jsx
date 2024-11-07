@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Roster from "./components/Roster.jsx"
 import SinglePuppy from './components/SinglePuppy.jsx'
 import Form from './components/Form.jsx'
+import Search from './components/Search.jsx'
 
 const App = () => {
   const [puppies, setPuppies] = useState([]);
@@ -32,8 +33,8 @@ const App = () => {
       <h1>Puppy Bowl</h1>
 
       <Routes>
-        <Route path="/roster" element={<Roster puppies={puppies} setPuppies={setPuppies}/>} />
-        {/* <Route path="/search" element={<Searched />} /> */}
+        <Route path="/roster" element={<Roster />} />
+        <Route path="/search/:name" element={<Search puppies={puppies}/>} />
         <Route path="/:teamId/:id" element={<SinglePuppy />} /> 
         <Route path="/form" element={<Form />} />
       </Routes>
