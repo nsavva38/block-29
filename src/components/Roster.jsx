@@ -1,24 +1,9 @@
-import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Roster = () => {
+const Roster = ({ puppies }) => {
 
-  const [puppies, setPuppies] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-
-    const getPuppies = async () => {
-      const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/teams`)
-      const responseJSON = await response.json();
-      const puppiesToBeAdded = responseJSON.data.teams;
-      console.log(`puppiesToBeAdded:`, puppiesToBeAdded)
-      setPuppies(puppiesToBeAdded);
-
-
-    }
-    getPuppies();
-  }, [])
       
 
   return (

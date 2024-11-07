@@ -43,7 +43,7 @@ const SinglePuppy = () => {
       <p>{selectedPuppy.name} plays for {puppyTeamName}!</p>
       <p>{selectedPuppy.name}'s current status is: {selectedPuppy.status}</p>
 
-      <Link to={`/`}>Back To Roster</Link>
+      <Link to={`/roster`}>Back To Roster</Link>
     </section>
 
   )
