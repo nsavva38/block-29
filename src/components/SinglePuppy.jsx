@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 
 const SinglePuppy = () => {
@@ -42,6 +42,8 @@ const SinglePuppy = () => {
       <img src={selectedPuppy.imageUrl} height="300"/>
       <p>{selectedPuppy.name} plays for {puppyTeamName}!</p>
       <p>{selectedPuppy.name}'s current status is: {selectedPuppy.status}</p>
+
+      <Link to={`/`}>Back To Roster</Link>
     </section>
 
   )

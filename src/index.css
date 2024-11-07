@@ -13,3 +13,10 @@ body {
   align-items: center;
   margin: 10px;
 }
+
+#puppy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}

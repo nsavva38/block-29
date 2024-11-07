@@ -6,4 +6,4 @@ https://fsa-puppy-bowl.herokuapp.com/api/
 
  https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players
 
- https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/teams
+ https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/teams/
